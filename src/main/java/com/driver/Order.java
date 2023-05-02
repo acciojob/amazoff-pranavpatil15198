@@ -1,34 +1,33 @@
 package com.driver;
 
-import java.util.Arrays;
-import java.util.List;
-
 public class Order {
 
     private String id;
     private int deliveryTime;
 
+
+
     public Order(String id, String deliveryTime) {
 
-        // The deliveryTime has to converted from string to int and then stored in the attribute
-        int HH = Integer.parseInt(deliveryTime.substring(0,2));
-        int MM = Integer.parseInt(deliveryTime.substring(3));
-
-        this.deliveryTime  = HH*60 + MM;
-    }
-
-    public void setId(String id) {
         this.id = id;
-    }
+////         char[] arr = new char[2];
+////         arr[0] = deliveryTime.charAt(0);
+//         String s1 = String.valueOf(deliveryTime.charAt(0) + deliveryTime.charAt(1));
+//         String s2 = String.valueOf(deliveryTime.charAt(3) + deliveryTime.charAt(4));
+//         int hh = Integer.valueOf(s1);
+//         int mm = Integer.valueOf(s2);
+//
+//         int time = (hh*60)+mm;
+        String arr[] = deliveryTime.split(":");
+        int hh = Integer.parseInt(arr[0]);
+        int mm = Integer.parseInt(arr[1]);
+        int time = (hh*60)+mm;
 
-    public void setDeliveryTime(int deliveryTime) {
-        this.deliveryTime = deliveryTime;
-    }
+        this.deliveryTime = time;
 
-    public static int getDeliveryTimeInt(String deliveryTime) {
-        List<String> l = Arrays.asList(deliveryTime.split(":"));
-        int totalTime = (Integer.parseInt(l.get(0)) *60) + Integer.parseInt(l.get(1));
-        return totalTime;
+
+        // The deliveryTime has to converted from string to int and then stored in the attribute
+        //deliveryTime  = HH*60 + MM
     }
 
     public String getId() {
@@ -36,4 +35,6 @@ public class Order {
     }
 
     public int getDeliveryTime() {return deliveryTime;}
+
+
 }
