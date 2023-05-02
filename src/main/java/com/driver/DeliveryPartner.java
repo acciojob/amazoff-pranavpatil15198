@@ -5,10 +5,6 @@ public class DeliveryPartner {
     private String id;
     private int numberOfOrders;
 
-    public DeliveryPartner(){
-        this.numberOfOrders = 0;
-    }
-
     public DeliveryPartner(String id) {
         this.id = id;
         this.numberOfOrders = 0;
