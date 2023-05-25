@@ -1,40 +1,36 @@
-package com.driver;
-
 public class Order {
+    private String orderId;
+    private String deliveryTime;
+    private DeliveryPartner deliveryPartner;
 
-    private String id;
-    private int deliveryTime;
+    // Constructors, getters, and setters
 
-
-
-    public Order(String id, String deliveryTime) {
-
-        this.id = id;
-////         char[] arr = new char[2];
-////         arr[0] = deliveryTime.charAt(0);
-//         String s1 = String.valueOf(deliveryTime.charAt(0) + deliveryTime.charAt(1));
-//         String s2 = String.valueOf(deliveryTime.charAt(3) + deliveryTime.charAt(4));
-//         int hh = Integer.valueOf(s1);
-//         int mm = Integer.valueOf(s2);
-//
-//         int time = (hh*60)+mm;
-        String arr[] = deliveryTime.split(":");
-        int hh = Integer.parseInt(arr[0]);
-        int mm = Integer.parseInt(arr[1]);
-        int time = (hh*60)+mm;
-
-        this.deliveryTime = time;
-
-
-        // The deliveryTime has to converted from string to int and then stored in the attribute
-        //deliveryTime  = HH*60 + MM
+    public Order(String orderId, String deliveryTime) {
+        this.orderId = orderId;
+        this.deliveryTime = deliveryTime;
     }
 
-    public String getId() {
-        return id;
+    public String getOrderId() {
+        return orderId;
     }
 
-    public int getDeliveryTime() {return deliveryTime;}
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
+    }
 
+    public String getDeliveryTime() {
+        return deliveryTime;
+    }
 
+    public void setDeliveryTime(String deliveryTime) {
+        this.deliveryTime = deliveryTime;
+    }
+
+    public DeliveryPartner getDeliveryPartner() {
+        return deliveryPartner;
+    }
+
+    public void setDeliveryPartner(DeliveryPartner deliveryPartner) {
+        this.deliveryPartner = deliveryPartner;
+    }
 }
