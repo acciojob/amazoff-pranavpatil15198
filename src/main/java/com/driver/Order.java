@@ -1,38 +1,30 @@
+package com.driver;
+
+import io.swagger.models.auth.In;
+
 public class Order {
-    private String orderId;
-    private String deliveryTime;
-    private DeliveryPartner deliveryPartner;
 
-    // Constructors, getters, and setters
-    
-    
+    private String id;
+    private int deliveryTime;
 
-    public Order(String orderId, String deliveryTime) {
-        this.orderId = orderId;
-        this.deliveryTime = deliveryTime;
+    public Order(String id, String deliveryTime) {
+
+        // The deliveryTime has to converted from string to int and then stored in the attribute
+        //deliveryTime  = HH*60 + MM
+
+        this.id=id;
+
+        String arr[]=deliveryTime.split(":");//12:45
+        int hr=Integer.parseInt(arr[0]);
+        int min=Integer.parseInt(arr[1]);
+
+        this.deliveryTime=(hr*60+min);
+
     }
 
-    public String getOrderId() {
-        return orderId;
+    public String getId() {
+        return id;
     }
 
-    public void setOrderId(String orderId) {
-        this.orderId = orderId;
-    }
-
-    public String getDeliveryTime() {
-        return deliveryTime;
-    }
-
-    public void setDeliveryTime(String deliveryTime) {
-        this.deliveryTime = deliveryTime;
-    }
-
-    public DeliveryPartner getDeliveryPartner() {
-        return deliveryPartner;
-    }
-
-    public void setDeliveryPartner(DeliveryPartner deliveryPartner) {
-        this.deliveryPartner = deliveryPartner;
-    }
+    public int getDeliveryTime() {return deliveryTime;}
 }
